@@ -1,0 +1,98 @@
+html {
+    box-sizing: border-box;
+    /* for the blurred effect: */
+    position: relative;
+}
+#background {
+    /* for the blurred effect: */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(2px);
+    z-index: -1;
+    background-image: url("table.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+#main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#calculator {
+    margin-top: 60px; 
+    margin-bottom: 60px; 
+    border: 1px solid rgb(8, 94, 94);
+    background-color: rgb(11, 131, 131);
+    height: 500px;
+    width: 370px;
+    border-radius: 35px;
+    box-shadow: 1px 5px 20px 20px rgba(0, 0, 0, 0.425);
+    display: flex;
+    flex-direction: column;
+}
+#calcTOP {
+    background-color: rgb(10, 145, 145);
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#calcBOTTOM {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.display {
+    height: 70px;
+    width: 250px;
+    padding-top: 17px;
+    padding-right: 3px;
+    font-size: 35px;
+    font-family: monospace;
+    text-align: right;
+    background-color: whitesmoke;
+    border: groove 4px rgba(128, 128, 128, 0.705);
+    box-shadow: 1px 2px 10px 10px rgba(255, 255, 255, 0.151);
+}
+#calcB_container {
+    height:335px;
+    width: 335px;
+    display: flex;
+}
+#column {
+    display: flex;
+    flex-direction: column;
+    height: 318px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+#grid {
+    width: auto;
+}
+button {
+    width: 60px;
+    margin: 10px;
+    height: 60px;
+    background-color: rgb(23, 23, 255);
+    font-size: 20px;
+    color: whitesmoke;
+}
+.clear {
+    background-color: rgba(255, 0, 0, 0.719);
+}
+.equals {
+    background-color: rgb(32, 161, 0);
+}
