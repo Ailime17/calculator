@@ -96,3 +96,8 @@ button {
 .equals {
     background-color: rgb(32, 161, 0);
 }
+
+.wrong:hover {
+    background-color: rgba(128, 128, 128, 0.671);
+    color: rgba(245, 245, 245, 0.493);
+}
