@@ -61,6 +61,21 @@
     }
   };
 
+  //add click sound to all buttons
+  let audio = document.querySelector("audio");
+  function playSound() {
+    audio.playbackRate = 3;
+    audio.currentTime = 0;
+    audio.play();
+  };
+  let buttons = document.querySelectorAll("button");
+  Array.from(buttons).forEach(button => button.addEventListener("mousedown", () => {
+        if (button.getAttribute("class").includes("wrong")) {
+            return;
+        }
+        playSound();
+    }));
+
   let display = document.querySelector(".display");
   //clear display:
   let clearbtn = document.querySelector(".clear");
@@ -82,7 +97,6 @@
     Array.from(numberbtns).forEach(numberbtn => numberbtn.addEventListener("mousedown", () => {
         if (display.textContent.length === 11) {
                 numberbtn.classList.add("wrong");
-                return;
         }
     }));
     Array.from(numberbtns).forEach(numberbtn => numberbtn.addEventListener("mouseover", () => {
@@ -149,9 +163,6 @@
     if (check() || display.textContent.length === 11) {
             return;
     }
-    if (display.textContent === "0" || 0) {
-        display.textContent = "";
-    }
     display.textContent += minusbtn.textContent;
   });
   minusbtn.addEventListener("mouseover", () => {
@@ -201,7 +212,11 @@ let equalsbtn = document.querySelector(".equals");
     display.textContent.at(-1) === ("-") ||
     display.textContent.at(-1) === ("*") ||
     display.textContent.at(-1) === ("/") ||
-    display.textContent.at(-1) === (".")) {
+    display.textContent.at(-1) === (".") ||
+    (!(display.textContent.slice(1).includes("-")) &&
+    !(display.textContent.includes("+")) &&
+    !(display.textContent.includes("*")) &&
+    !(display.textContent.includes("/")))) {
         return;
     }
     let num1and2;
