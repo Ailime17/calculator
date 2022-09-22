@@ -95,7 +95,7 @@
     display.textContent += numberbtn.textContent;
   }));
     Array.from(numberbtns).forEach(numberbtn => numberbtn.addEventListener("mousedown", () => {
-        if (display.textContent.length === 11) {
+        if (display.textContent.length === 10) {
                 numberbtn.classList.add("wrong");
         }
     }));
@@ -107,6 +107,31 @@
         numberbtn.classList.remove("wrong");
     }));
 
+
+
+    //some keyboard support (for the numbers):
+    function digits(x) {
+      let digit;
+      for (i=0;i<=9;i++) {
+        digit = `Digit${i}`
+        if (x.code !== digit) {
+          continue;
+        } else {
+        if (display.textContent === "0" || 0) {
+          display.textContent = "";
+        }
+        if (display.textContent.length === 11) {
+            return;
+        } 
+        display.textContent += x.key;
+      }
+      }
+    };
+    document.addEventListener("keypress", (e) => {
+      digits(e);
+    });
+
+
   //backspace display:
   let backspacebtn = document.querySelector(".backspace");
   backspacebtn.addEventListener("click", () => {
@@ -115,6 +140,7 @@
         display.textContent = 0;
     }
   });
+
 
   function check() {
     if (display.textContent.includes("+") ||
